@@ -1,0 +1,180 @@
+<!-- Toolbar -->
+<div class="col-md-12 toolbar" role="banner">
+  <img class="logo img-fluid" src="../assets/logo.svg" alt="Digital Hamster logo">
+    <div class="inputBtn-combo">
+      <input type="tel" name="telefono">
+      <a class="btn" href="#" data-toggle="modal" data-target="#centeredModal" (click)="sendAction('llamar')">
+        <span>LLamadme Gratis</span>
+      </a>
+    </div>
+    <a class="btn" href="#" data-toggle="modal" data-target="#centeredModal" (click)="sendAction('cita')">
+      <span>Cita previa</span>
+    </a>
+</div>
+
+<div class="content" role="main">
+  <div class="main-banner">
+    <div class="container">
+      <div class="main-banner-innerBox">
+        <p class="main-banner-innerBox_title">Elige tu estilo de moto</p>
+        <ul>
+          <li>
+            <a href="#scooter">
+              <img class="img-fluid" src="../assets/motos/scooter.png" alt="Scooter">
+            </a>
+          </li>
+          <li>
+            <a href="#adventure">
+              <img class="img-fluid" src="../assets/motos/adventure.png" alt="Adventure">
+            </a>
+          </li>
+          <li>
+            <a href="#street">
+              <img class="img-fluid" src="../assets/motos/street.png" alt="Street">
+            </a>
+          </li>
+          <li>
+            <a href="#supersport">
+              <img class="img-fluid" src="../assets/motos/supersport.png" alt="Supersport">
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="features">
+    <div class="container">
+      <ul class="row">
+        <li class="col-md-4">
+          <span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
+          <span>FINANCIACIÓN A TU MEDIDA</span>
+        </li>
+        <li class="col-md-4">
+          <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>
+          <span>GARANTÍA DE HASTA 4 AÑOS</span>
+        </li>
+        <li class="col-md-4">
+          <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+          <span>SEGURO CASA GRATIS</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="cards">
+    <div *ngFor="let cards of motorbikes; let i = index;" id="{{ cards.motoName }}" class="cards-block">
+        <div class="container">
+          <h2 class="cards-block--title">LOREM IPSUM {{ cards.motoName }}</h2>
+          <div class="cards-list">
+            <div *ngFor="let card of cardsCounter(cards.cardsNum)" class="card col-md-4">
+              {{ card }}
+              <div class="card--header">
+                <span class="ribbon">SMART TOP BOX</span>
+                <img class="img-fluid" src="../assets/card-placeholder.png" alt="Moto image">
+                <h4>MOTO 1</h4>
+                <span class="card-header-price">55€/mes</span>
+              </div>
+              <div class="card--content">
+                <ul>
+                  <li>
+                    <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+                    <span>Lorem Ipsum Mapit</span>
+                  </li>
+                  <li>
+                    <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+                    <span>4 años de Garantía</span>
+                  </li>
+                  <li>
+                    <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+                    <span>TAE 3,56%</span>
+                  </li>
+                  <li>
+                    <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+                    <span>Lore Ipsum Seguro</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="card--cta">
+                <button class="card--btn">SOLICITAR INFORMACIÓN</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--
+      <div id="street" class="cards-block">
+        <h2>LOREM IPSUM STREET</h2>
+      </div>
+      <div id="supersport" class="cards-block">
+        <h2>LOREM IPSUM SUPERSPORT</h2>
+      </div>
+    -->
+  </div>
+  <footer>
+    <div class="footer-image"></div>
+    <div class="footer-cta">
+      <button class="btn--secondary">SOLICITAR CUOTA</button>
+    </div>
+    <div class="footer-block">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="map-section col-md-5">
+            <div id="map"></div>
+          </div>
+          <div class="contact-section col-md-7">
+            <h4>CONCESIONARIO OFICIAL BARCELONA</h4>
+            <p>Para una mejor atención y disponibilidad puede solicitar cita previa en nuestro Concesionario De Sant Boi de Llobregat.</p>
+            <h6>LORE IPSUM</h6>
+            <p>
+              <span>C/ LORE IPSUM Nº 3</span>
+              <span>08830 BARCELONA </span>
+            </p>
+            <h6>HORARIOS</h6>
+            <p>
+              <span>De Lunes a Viernes</span>
+              <span>9 - 14:00 16:00 a 19:00</span>
+            </p>
+            <h6>SABADOS</h6>
+            <span>De 10:00 a 14:00</span>
+            <div>
+              <button class="btn--secondary" data-toggle="modal" data-target="#centeredModal" (click)="sendAction('cita')">SOLICITA CITA PREVIA</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 footer-toolbar" role="banner">
+      <img class="logo img-fluid" src="../assets/logo.svg" alt="Digital Hamster logo">
+    </div>
+  </footer>
+</div>
+
+<div class="modal fade" id="centeredModal" tabindex="-1" role="dialog" aria-labelledby="centeredModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="centeredModalTitle">{{ modalTitle }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="#" formGroup="contactForm" class="contact-form">
+          <label class="contact-form__label" for="nombre" >Nombre</label>
+          <input formControlName="nombre" type="text" class="contact-form__input" placeholder="Nombre">
+          <label class="contact-form__label" for="apellidos">Apellidos</label>
+          <input formControlName="apellidos" type="text" class="contact-form__input" placeholder="Apellidos">
+          <label class="contact-form__label" for="telefono" placeholder="Teléfono">Teléfono</label>
+          <input formControlName="telefono" type="tel" class="contact-form__input" placeholder="666114455">    
+          <label class="contact-form__label" for="email" placeholder="email">Email</label>
+          <input formControlName="email" type="email" class="contact-form__input" placeholder="ejemplo@email.com">      
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn--modal" data-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn--modal" (click)="saveForm()">Enviar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
